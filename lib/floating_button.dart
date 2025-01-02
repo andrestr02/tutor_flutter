@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class floating_button extends StatefulWidget {
-  const floating_button({super.key});
+class FloatingButton extends StatefulWidget {
+  const FloatingButton({super.key});
 
   @override
-  State<floating_button> createState() => _floating_buttonState();
+  State<FloatingButton> createState() => _FloatingButtonState();
 }
 
-class _floating_buttonState extends State<floating_button> {
+class _FloatingButtonState extends State<FloatingButton> {
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

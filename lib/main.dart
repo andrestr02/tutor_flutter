@@ -1,6 +1,6 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
+//import 'package:flutter/rendering.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = FavoritesPage();
         break;
       default:
-        throw UnimplementedError('Tidak ada widget untuk: $selectedIndex');
+        throw UnimplementedError('tidak ada widget untuk: $selectedIndex');
     }
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(

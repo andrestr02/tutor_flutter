@@ -11,6 +11,20 @@ class _formState extends State<form> {
   bool ch1 = false;
   bool ch2 = false;
 
+  int _val = 1; //for radio button
+
+  String? selectVal; //for list box
+  List<String> dropdownItem = ['One', 'Two', 'Three'];
+  TextEditingController _namaController = TextEditingController();
+  TextEditingController _noHpController = TextEditingController();
+
+  @override
+  void dispose() {
+    _namaController.dispose();
+    _noHpController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,6 +76,7 @@ class _formState extends State<form> {
             padding:
                 const EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
             child: TextFormField(
+                controller: _namaController,
                 decoration: InputDecoration(
                     labelText: 'Masukkan Nama',
                     prefixIcon: Icon(Icons.drive_file_rename_outline_rounded),
@@ -71,13 +86,91 @@ class _formState extends State<form> {
           Padding(
             padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
             child: TextFormField(
+                controller: _noHpController,
                 keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                     labelText: 'Masukkan Nomor hp',
                     prefixIcon: Icon(CupertinoIcons.number_circle),
                     border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(20)))),
-          )
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            children: [
+              Text(
+                'Gender',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text('  Male'),
+              Radio(
+                  value: 1,
+                  activeColor: Colors.blue,
+                  groupValue: _val,
+                  onChanged: (newval) {
+                    setState(() {
+                      _val = newval!;
+                    });
+                  }),
+              Text('  Female'),
+              Radio(
+                  value: 2,
+                  activeColor: Colors.blue,
+                  groupValue: _val,
+                  onChanged: (newval) {
+                    setState(() {
+                      _val = newval!;
+                    });
+                  })
+            ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          //Text('Select'),
+          DropdownButton(
+            hint: Text('Year of Experience'),
+            value: selectVal,
+            onChanged: (String? newval) {
+              setState(() {
+                selectVal = newval;
+              });
+            },
+            items: dropdownItem.map<DropdownMenuItem<String>>((String value) {
+              return DropdownMenuItem<String>(
+                value: value,
+                child: Text(value),
+              );
+            }).toList(),
+          ),
+          SizedBox(
+            height: 50,
+          ),
+          MaterialButton(
+            onPressed: () {
+              setState(() {
+                ch1 = false;
+                ch2 = false;
+                selectVal = null;
+                _namaController.clear();
+                _noHpController.clear();
+              });
+            },
+            child: Text(
+              'Submit',
+              style: TextStyle(color: Colors.white),
+            ),
+            color: Colors.blue,
+            height: 40,
+            minWidth: 100,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+          ),
         ],
       ),
     );

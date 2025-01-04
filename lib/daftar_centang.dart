@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
       title: 'Exploration',
       theme: ThemeData(primaryColor: Colors.blue),
       home: MyHomePage(),
+      // colorScheme: ColorScheme.light(primary: Colors.green),
     );
   }
 }

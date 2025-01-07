@@ -1,20 +1,20 @@
 import "package:flutter/cupertino.dart";
 import "package:flutter/material.dart";
 
-class form extends StatefulWidget {
-  const form({super.key});
+class FormKu extends StatefulWidget {
+  const FormKu({super.key});
   @override
-  State<form> createState() => _formState();
+  State<FormKu> createState() => _FormState();
 }
 
-class _formState extends State<form> {
+class _FormState extends State<FormKu> {
   bool ch1 = false;
   bool ch2 = false;
 
   int _val = 1; //for radio button
 
   String? selectVal; //for list box
-  List<String> dropdownItem = ['One', 'Two', 'Three'];
+  List<String> dropdownItem = ['Satu', 'Dua', 'Tiga'];
   TextEditingController _namaController = TextEditingController();
   TextEditingController _noHpController = TextEditingController();
 
@@ -42,17 +42,17 @@ class _formState extends State<form> {
             height: 10,
           ),
           Center(
-              child: Text('Job Apply Form',
+              child: Text('Formulir Pendaftaran',
                   style: TextStyle(fontWeight: FontWeight.w500, fontSize: 20))),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Field :- ',
+                'Field : ',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text('Commerce'),
+              Text('- Commerce'),
               Checkbox(
                   value: ch1,
                   activeColor: Colors.blue,
@@ -61,7 +61,7 @@ class _formState extends State<form> {
                       ch1 = newvalue!;
                     });
                   }),
-              Text('Science'),
+              Text('- Science'),
               Checkbox(
                   value: ch2,
                   activeColor: Colors.blue,
@@ -98,15 +98,17 @@ class _formState extends State<form> {
             height: 20,
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Gender',
+                'Jenis Kelamin',
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 height: 10,
               ),
-              Text('  Male'),
+              Text('  Laki-laki'),
               Radio(
                   value: 1,
                   activeColor: Colors.blue,
@@ -116,7 +118,7 @@ class _formState extends State<form> {
                       _val = newval!;
                     });
                   }),
-              Text('  Female'),
+              Text('  Perempuan'),
               Radio(
                   value: 2,
                   activeColor: Colors.blue,
@@ -133,7 +135,7 @@ class _formState extends State<form> {
           ),
           //Text('Select'),
           DropdownButton(
-            hint: Text('Year of Experience'),
+            hint: Text('Lama Pendidikan Sebelumnya'),
             value: selectVal,
             onChanged: (String? newval) {
               setState(() {
@@ -160,15 +162,15 @@ class _formState extends State<form> {
                 _noHpController.clear();
               });
             },
-            child: Text(
-              'Submit',
-              style: TextStyle(color: Colors.white),
-            ),
             color: Colors.blue,
             height: 40,
             minWidth: 100,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
+            ),
+            child: Text(
+              'Submit',
+              style: TextStyle(color: Colors.white),
             ),
           ),
         ],

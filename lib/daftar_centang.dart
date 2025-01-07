@@ -10,13 +10,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Exploration',
       theme: ThemeData(primaryColor: Colors.blue),
-      home: MyHomePage(),
+      home: DaftarCentang(),
       // colorScheme: ColorScheme.light(primary: Colors.green),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
+class DaftarCentang extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

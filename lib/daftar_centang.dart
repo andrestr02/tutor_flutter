@@ -66,10 +66,10 @@ class TaskItem extends StatefulWidget {
 
   const TaskItem({super.key, required this.label});
   @override
-  _TaskItemState createState() => _TaskItemState();
+  TaskItemState createState() => TaskItemState();
 }
 
-class _TaskItemState extends State<TaskItem> {
+class TaskItemState extends State<TaskItem> {
   bool isChecked = false;
   @override
   Widget build(BuildContext context) {

@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:tutor_flutter/login.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({super.key});
